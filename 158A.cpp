@@ -63,22 +63,25 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    long long int m, n, a, r1, r2;
-    cin >> n >> m >> a;
+int main() {
+    int n, k;
+    cin >> n >> k;
 
-    if (m % a == 0)
-        r1 = m / a;
-    else
-        r1 = (m / a) + 1;
+    int scores[n];
+    for (int i = 0; i < n; i++) {
+        cin >> scores[i];
+    }
 
-    if (n % a == 0)
-        r2 = n / a;
-    else
-        r2 = (n / a) + 1;
+    int count = 0;
+    int kth_score = scores[k-1];
 
-    cout << r1 * r2 << endl;
+    for (int i = 0; i < n; i++) {
+        if (scores[i] >= kth_score && scores[i] > 0) {
+            count++;
+        }
+    }
+
+    cout << count << endl;
 
     return 0;
 }
